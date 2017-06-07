@@ -60,4 +60,10 @@ class InfoController extends Controller
 
         } else return '失败';
     }
+
+    public function getInfo(Request $request){
+        $where = $request ->input('where');
+        $li =  Info::where('class', $where)-> first();
+        return view('font.info', ['li'=> $li]);
+    }
 }
